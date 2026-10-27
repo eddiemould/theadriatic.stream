@@ -195,12 +195,16 @@ html {
   backdrop-filter: var(--grid-background-blur);
 
   height: 66px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
 #adriatic-header h1 {
   font-family: 'Terminal Grotesque Open';
   font-size: 4rem;
   text-align: center;
+  margin-bottom: -0.75rem;
 }
 
 #station-description {
@@ -308,16 +312,10 @@ html {
     grid-template-columns: minmax(0, 1fr);
   }
   #adriatic-header {
-    display: flex;
-    align-items: center;
-    justify-content: center;
+    height: 60px;
   }
   #adriatic-header h1 {
-    font-family: 'Terminal Grotesque Open';
     font-size: 3.5rem;
-    text-align: center;
-    top: 5px;
-    margin-bottom: -0.75rem;
   }
   .coming-soon, .coming-soon-text {
     display: none;
