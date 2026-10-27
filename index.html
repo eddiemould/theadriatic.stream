@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="The Adriatic is a self-hosted radio station with 'round the clock, human to human music programming."/>
+  <title>The Adriatic | Radio Station</title>
+  <link rel="stylesheet" href="main.css">
+  <link rel="icon" type="image/png" href="/assets/Cakewalk Virtual Jukebox.png"/>
+</head>
+<body>
+
+  <div id="offline-message" hidden>
+    <div id="offline-text">
+      <p id="adriatic-offline">The Adriatic</p>
+      <p id="offline-offline">is currently offline...</p>
+    </div>
+  </div>
+
+  <div id="station-online" class="online" hidden>
+
+    <div id="adriatic-header" class="online" hidden>
+      <h1>The Adriatic</h1>
+    </div>
+
+    <div id="station-description" class="online" hidden>
+      <p>welcome to <span>the adriatic</span>! human to human music programming: no algorithms or ai. this station is self-hosted, which means it sometimes goes offline. stay awhile and come back anytime ☆<br><br>
+      - eddie<br><br>
+      ~~~<br>
+      <div id="outlinks">
+      <div class="coming-soon">guest playlists
+        <p class="coming-soon-text">coming soon...</p>
+      </div>
+      <a href="/credits" target="_blank">credits</a></p>
+      </div>
+    </div>
+
+    <div id="station-fig" class="online" hidden>
+      <img src="/imgs/calvin-hobbes-music.png" alt="">
+    </div>
+
+    <div id="radio-player" class="online" hidden>
+      <div id="current-time-player">
+        <p>Current time:</p>
+        <p id="current-time"></p>
+      </div>
+      <audio id="radio-stream" preload="none" data-src="https://radio.theadriatic.stream/listen/adriatic/radio.mp3"></audio>
+      <div id="player-container">
+        <div id="art-ticker">
+          <img id="song-art" src="" alt="Album Cover Art">
+          <div id="title-description">
+            <div id="ticker-track">
+              <div class="ticker-group">
+                <p id="song-title"></p>
+                <span>&nbsp;by&nbsp;</span>
+                <p id="song-artist"></p>
+              </div>
+            </div>
+          </div>
+        </div>
+        <button id="play-button">Play</button>
+        <div id="volume-and-mute">
+          <button id="mute-button">Mute</button>
+          <input id="volume-slider" type="range" min="0" max="1" step="0.01" value="0.8">
+        </div>
+      </div>
+      <div id="current-schedule-player">
+        <p>Current program:</p>
+        <p id="current-program"></p>
+      </div>
+    </div>
+
+    <div id="song-history" class="online" hidden>
+      <h2>Previously played</h2>
+
+      <div id="history-1" class="history-item">
+        <img class="history-art" src="" alt="Album Cover Art">
+        <div>
+          <p class="history-title"></p>
+          <p class="history-artist"></p>
+          <p class="history-time"></p>
+        </div>
+      </div>
+
+      <div id="history-2" class="history-item">
+        <img class="history-art" src="" alt="Album Cover Art">
+        <div>
+          <p class="history-title"></p>
+          <p class="history-artist"></p>
+          <p class="history-time"></p>
+        </div>
+      </div>
+
+      <div id="history-3" class="history-item">
+        <img class="history-art" src="" alt="Album Cover Art">
+        <div>
+          <p class="history-title"></p>
+          <p class="history-artist"></p>
+          <p class="history-time"></p>
+        </div>
+      </div>
+
+      <div id="history-4" class="history-item">
+        <img class="history-art" src="" alt="Album Cover Art">
+        <div>
+          <p class="history-title"></p>
+          <p class="history-artist"></p>
+          <p class="history-time"></p>
+        </div>
+      </div>
+    </div>
+
+    <div id="current-schedule" class="online" hidden>
+
+      <div id="monday-data"><h3>Monday</h3></div>
+      <div id="tuesday-data"><h3>Tuesday</h3></div>
+      <div id="wednesday-data"><h3>Wednesday</h3></div>
+      <div id="thursday-data"><h3>Thursday</h3></div>
+      <div id="friday-data"><h3>Friday</h3></div>
+      <div id="saturday-data"><h3>Saturday</h3></div>
+      <div id="sunday-data"><h3>Sunday</h3></div>
+
+      <!-- Timeslot data -->
+      <template id="slot-template">
+        <div class="slot">
+          <p class="slot-title"></p>
+          <p class="slot-timing"></p>
+          <p class="slot-description"></p>
+        </div>
+      </template>
+    </div>
+
+  </div>
+
+  <script src="main.js"></script>
+</body>
+</html>

@@ -1,0 +1,740 @@
+/* GENERAL */
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: "Quattro", Helvetica, serif, system-ui;
+  color: black;
+  scrollbar-width: thin;
+  scrollbar-color: white black;  
+}
+
+/* Still hides items after styling changes */
+[hidden] { display: none !important; }
+
+:root {
+  --grid-background: rgba(255, 255, 255, 1);
+  --grid-background-blur: blur(2px);
+  --border-bottom: 3px solid black;
+  --border-top: 1px solid black;
+  /* player */
+  --art-width: 350px;
+  --active-button: blue;
+  --hover-button: blue;
+  /* volume slider */
+  --slider-width: 300px;
+  --slider-height: 12.5px;
+  --slider-left: blue;
+  --slider-right: rgba(0, 0, 0, 0);
+}
+
+::selection {
+  background-color: red;
+  color: white;
+}
+
+::-moz-selection {
+  background-color: red;
+  color: white;
+}
+
+h2, h3 {
+  font-family: 'Terminal Grotesque';
+}
+
+a {
+  font-style: italic;
+  text-decoration: underline 2px #E5E5E5;
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+/* FONTS */
+
+  @font-face { /* Kyrios */
+    font-family: 'Kyrios';
+    src: url(/fonts/Kyrios_Standard-Regular.woff2) format("woff2");
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+  }
+    @font-face { /* Quattro */
+    font-family: 'Quattro';
+    src: url(/fonts/iAWriterQuattroS-Regular.woff2) format("woff2");
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+  }
+    @font-face { /* Quattro Italic */
+    font-family: 'Quattro';
+    src: url(/fonts/iAWriterQuattroS-Italic.woff2) format("woff2");
+    font-weight: 400;
+    font-style: italic;
+    font-display: swap;
+  }
+    @font-face { /* Quattro Bold */
+    font-family: 'Quattro';
+    src: url(/fonts/iAWriterQuattroS-Bold.woff2) format("woff2");
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+  }
+    @font-face { /* Quattro Bold Italic */
+    font-family: 'Quattro';
+    src: url(/fonts/iAWriterQuattroS-BoldItalic.woff2) format("woff2");
+    font-weight: 700;
+    font-style: italic;
+    font-display: swap;
+  }
+    @font-face { /* Terminal Grotesque */
+    font-family: 'Terminal Grotesque';
+    src: url(/fonts/terminal-grotesque.woff2) format("woff2");
+    font-weight: 700;
+    font-style: italic;
+    font-display: swap;
+  }
+    @font-face { /* Terminal Grotesque Open */
+    font-family: 'Terminal Grotesque Open';
+    src: url(/fonts/terminal-grotesque-open.woff2) format("woff2");
+    font-weight: 700;
+    font-style: italic;
+    font-display: swap;
+  }
+
+/* GENERAL */
+
+html {
+  background-image: url(/imgs/background/halftone.png);
+  background-repeat: repeat;
+  background-size: 8px;
+}
+
+.coming-soon {
+  position: relative;
+  display: inline-block;
+ cursor: default;
+  font-style: italic;
+  text-decoration: underline 2px #E5E5E5;
+}
+
+.coming-soon-text {
+  visibility: hidden;
+  background-color: blue;
+  color: #fff;
+  position: absolute;
+  text-wrap: nowrap;
+  z-index: 1;
+  top: 0;
+  left: 105%;
+}
+
+.coming-soon:hover .coming-soon-text {
+  visibility: visible;
+}
+
+#outlinks a {
+  width: fit-content;
+  display: block;
+}
+
+.other-container {
+  min-height: 100vh;
+  padding: 1rem;
+  display: grid;
+}
+
+#last-updated {
+  font-size: 0.9rem;
+}
+
+.text-box {
+  border-bottom: var(--border-bottom);
+  border-right: var(--border-bottom);
+  border-top: var(--border-top);
+  border-left: var(--border-top);
+  background-color: var(--grid-background);
+  backdrop-filter: var(--grid-background-blur);
+
+  padding: 1rem;
+}
+
+.text-box h1 {
+  font-family: 'Terminal Grotesque Open';
+  font-size: 4rem;
+}
+
+.bold {
+  font-family: 'Terminal Grotesque';
+  font-size: 1.25rem;
+}
+
+#station-online {
+  display: grid;
+  grid-template-areas: 
+  "a a a"
+  "b c d"
+  "f c d"
+  "e e e";
+  grid-template-columns: 1fr 1.5fr 1fr;
+  grid-template-rows: auto auto auto minmax(200px, 1fr);
+  gap: 1rem;
+  padding: 1rem;
+  height: 100vh;
+}
+
+#adriatic-header {
+  grid-area: a;
+  border-bottom: var(--border-bottom);
+  border-right: var(--border-bottom);
+  border-top: var(--border-top);
+  border-left: var(--border-top);
+  background-color: var(--grid-background);
+  backdrop-filter: var(--grid-background-blur);
+
+  height: 66px;
+}
+
+#adriatic-header h1 {
+  font-family: 'Terminal Grotesque Open';
+  font-size: 4rem;
+  text-align: center;
+}
+
+#station-description {
+  grid-area: b;
+  border-bottom: var(--border-bottom);
+  border-right: var(--border-bottom);
+  border-top: var(--border-top);
+  border-left: var(--border-top);
+  background-color: var(--grid-background);
+  backdrop-filter: var(--grid-background-blur);
+
+  font-size: 0.9rem;
+  padding: 1rem;
+}
+
+#station-description span {
+  font-family: 'Terminal Grotesque';
+  font-size: 1.05rem;
+}
+
+#radio-player {
+  grid-area: c;
+  border-bottom: var(--border-bottom);
+  border-right: var(--border-bottom);
+  border-top: var(--border-top);
+  border-left: var(--border-top);
+  background-color: var(--grid-background);
+  backdrop-filter: var(--grid-background-blur);
+
+  padding: 1rem;
+
+  display: grid;
+  grid-template-areas: 
+  "time player station";
+  grid-template-columns: 1fr 1fr 1fr;
+}
+
+#song-history {
+  grid-area: d;
+  border-bottom: var(--border-bottom);
+  border-right: var(--border-bottom);
+  border-top: var(--border-top);
+  border-left: var(--border-top);
+  background-color: var(--grid-background);
+  backdrop-filter: var(--grid-background-blur);
+
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+
+  padding: 1rem;
+}
+
+#current-schedule {
+  grid-area: e;
+  border-bottom: var(--border-bottom);
+  border-right: var(--border-bottom);
+  border-top: var(--border-top);
+  border-left: var(--border-top);
+  background-color: var(--grid-background);
+  backdrop-filter: var(--grid-background-blur);
+}
+
+#station-fig {
+  grid-area: f;
+  border-bottom: var(--border-bottom);
+  border-right: var(--border-bottom);
+  border-top: var(--border-top);
+  border-left: var(--border-top);
+  background-color: var(--grid-background);
+  backdrop-filter: var(--grid-background-blur);
+
+  padding: 1rem;
+  justify-self: center;
+  align-self: center;
+}
+
+#station-fig img {
+  width: 150px;
+}
+
+#current-time {
+  font-variant-numeric: tabular-nums;
+}
+
+#current-time-player {
+  grid-area: time;
+}
+
+#current-time-player p {
+  font-family: 'Terminal Grotesque';
+  font-size: 0.8rem;
+}
+
+@media (max-width: 1200px) {
+  #station-online {
+    grid-template-areas: 
+    "a"
+    "c"
+    "b"
+    "d"
+    "e"
+    "f";
+    height: 100%;
+    grid-template-columns: minmax(0, 1fr);
+  }
+  #adriatic-header {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+  #adriatic-header h1 {
+    font-family: 'Terminal Grotesque Open';
+    font-size: 3.5rem;
+    text-align: center;
+    top: 5px;
+    margin-bottom: -0.75rem;
+  }
+  .coming-soon, .coming-soon-text {
+    display: none;
+  }
+  #radio-player {
+    grid-template-areas: 
+    "time station"
+    "player player";
+    grid-template-columns: auto auto;
+  }
+  #current-time-player {
+    margin-bottom: 1rem;
+  }
+  #current-time-player p {
+    text-align: start;
+  }
+  #last-updated {
+    font-size: 0.75rem;
+  }
+}
+
+/* PLAYER */
+
+#art-ticker {
+  display: flex;
+  flex-direction: column;
+}
+
+#current-schedule-player {
+  grid-area: station;
+  font-size: 0.8rem;
+}
+
+#current-schedule-player p {
+  font-family: 'Terminal Grotesque';
+  text-align: end;
+}
+
+#song-art {
+  width: var(--art-width);
+  height: var(--art-width);
+  object-fit: cover;
+  border-right: var(--border-bottom);
+  border-top: var(--border-top);
+  border-left: var(--border-top);
+}
+
+#play-button {
+  background: none;
+  border-bottom: var(--border-bottom);
+  border-right: var(--border-bottom);
+  border-top: var(--border-top);
+  border-left: var(--border-top);
+
+  width: 50px;
+  height: 50px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  font-family: 'Terminal Grotesque';
+  font-size: 1rem;
+  margin-bottom: 1rem;
+}
+
+#play-button:hover {
+  color: var(--hover-button);
+  cursor: pointer;
+}
+
+#mute-button:hover {
+  color: var(--hover-button);
+  cursor: pointer;
+}
+
+#play-button.is-active {
+  background-color: var(--active-button);
+  color: white;
+}
+
+#play-button.is-active:hover {
+  background-color: red;
+}
+
+#mute-button.is-active {
+  background-color: var(--active-button);
+  color: white;
+}
+
+#mute-button.is-active:hover {
+  background-color: red;
+}
+
+#mute-button {
+  background: none;
+  border-bottom: var(--border-bottom);
+  border-right: var(--border-bottom);
+  border-top: var(--border-top);
+  border-left: var(--border-top);
+  width: 50px;
+  height: 12.5px;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  font-family: 'Terminal Grotesque';
+  font-size: 0.5rem;
+}
+
+#volume-and-mute {
+  display: flex;
+}
+
+#player-container {
+  grid-area: player;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+#title-description {
+  --ticker-gap: 2rem;   /* space between repeats */
+  --ticker-speed: 25s;  /* time for one full loop */
+
+  width: var(--art-width);
+  overflow: hidden;
+
+  font-style: italic;
+  font-size: 0.75rem;
+
+  border-bottom: var(--border-bottom);
+  border-right: var(--border-bottom);
+  border-left: var(--border-top);
+
+  background-color: #E5E5E5;
+  margin-bottom: 1rem;
+}
+
+#ticker-track {
+  display: flex;
+  width: max-content;
+  animation: ticker var(--ticker-speed) linear infinite;
+}
+
+.ticker-group {
+  display: flex;
+  flex-shrink: 0;
+  white-space: nowrap;
+  padding-right: var(--ticker-gap);
+}
+
+.ticker-group p {
+  font-weight: 700;
+}
+
+@keyframes ticker {
+  to { transform: translateX(calc(-1 * var(--group-width))); }
+}
+
+@media (max-width: 1200px) {
+  #song-art {
+    width: 100%;
+    height: auto;
+    aspect-ratio: 1/1;
+  }
+  #title-description {
+    --ticker-gap: 5rem;   /* space between repeats */
+    --ticker-speed: 18s;  /* time for one full loop */
+  }
+  #radio-player,
+  #player-container,
+  #art-ticker,
+  #title-description {
+    min-width: 0;
+    width: 100%;
+  }
+  #mute-button {
+    display: none;
+  }
+  #play-button.is-active {
+    background-color: blue;
+    color: white;
+  }
+  #play-button.is-active:hover {
+    background-color: blue;
+    color: white;
+  }
+  #play-button:hover {
+    color: black;
+  }
+  #current-schedule-player {
+    margin-bottom: 1rem;
+  }
+  #current-schedule-player p {
+    text-align: end;
+  }
+  #player-container {
+    gap: 0;
+    max-width: 500px;
+    justify-self: center;
+  }
+  #play-button {
+    margin-bottom: 0;
+  }
+  #art-ticker {
+    margin-bottom: 0;
+  }
+}
+
+/* VOLUME SLIDER */
+
+/* All Browsers */
+#volume-slider {
+  overflow: hidden;
+  width: var(--slider-width);
+  height: var(--slider-height);
+  margin: 0;
+  padding: 0;
+  background-color: var(--slider-right);
+  -webkit-appearance: none;
+  appearance: none;
+  border-bottom: var(--border-bottom);
+  border-right: var(--border-bottom);
+  border-top: var(--border-top);
+  border-left: var(--border-top);
+}
+
+/* Chrome / Safari / Edge */
+#volume-slider::-webkit-slider-runnable-track {
+  height: var(--slider-height);
+  -webkit-appearance: none;
+  color: var(--slider-left);
+}
+#volume-slider::-webkit-slider-thumb {
+  width: 0;
+  height: var(--slider-height);
+  -webkit-appearance: none;
+  box-shadow: calc(-1 * var(--slider-width)) 0 0 var(--slider-width) var(--slider-left);
+}
+
+/* Firefox */
+#volume-slider::-moz-range-track {
+  height: var(--slider-height);
+  background-color: var(--slider-right);
+}
+#volume-slider::-moz-range-progress {
+  height: var(--slider-height);
+  background-color: var(--slider-left);
+}
+#volume-slider::-moz-range-thumb {
+  width: 0;
+  height: var(--slider-height);
+  border: none;
+  box-sizing: border-box;
+}
+
+/* IE / Edge Legacy */
+#volume-slider::-ms-fill-lower {
+  background-color: var(--slider-left);
+}
+#volume-slider::-ms-fill-upper {
+  background-color: var(--slider-right);
+}
+
+@media (max-width: 1200px) {
+  #volume-slider {
+    display: none;
+  }
+}
+
+/* SCHEDULE */
+
+#current-schedule {
+  display: grid;
+  grid-template-columns: auto auto auto auto auto auto auto;
+  overflow-y: auto;
+  overflow-x: hidden;
+  min-height: 0;
+}
+
+#monday-data, #tuesday-data, #wednesday-data, #thursday-data, #friday-data, #saturday-data {
+  border-right: 1px solid black;
+}
+
+#current-schedule h3 {
+  background-color: white;
+  position: sticky;
+  top: 0;
+
+  border-bottom: 3px solid black;
+}
+
+.slot {
+  border-bottom: 1px solid black;
+}
+
+.slot-title {
+  font-weight: 700;
+  font-size: 0.8rem;
+}
+
+.slot-timing {
+  font-style: italic;
+  font-size: 0.6rem;
+}
+
+.slot-description {
+  font-size: 0.7rem;
+}
+
+.slot.is-now p {
+  color: white;
+  background-color: blue;
+}
+
+#current-schedule > .is-today > h3 {
+  color: blue;
+  background-color: #E5E5E5;
+}
+
+#current-schedule > .is-today {
+  background-color: #E5E5E5;
+}
+
+@media (max-width: 1200px) {
+  #current-schedule {
+    grid-template-columns: none;
+  }
+  #current-schedule > div {
+    border: none;
+  }
+}
+
+/* HISTORY */
+
+.history-item {
+  display: flex;
+}
+
+.history-art {
+  width: 90px;
+  height: 90px;
+  object-fit: cover;
+
+  margin-right: 0.5rem;
+  border-bottom: var(--border-bottom);
+  border-right: var(--border-bottom);
+  border-top: var(--border-top);
+  border-left: var(--border-top);
+}
+
+.history-title {
+  font-weight: 700;
+}
+
+.history-artist, .history-time {
+  font-size: 0.8rem;
+}
+
+.history-time {
+  font-style: italic;
+}
+
+/* OFFLINE MESSAGE */
+
+#offline-message {
+  display: flex;
+  flex-flow: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-image: url(/imgs/nasa/JamesWebb_GalaxiesInACosmicHouseOfMirrors.webp);
+  box-shadow: 0 0 1rem 1rem black inset;
+  background-size: cover;
+  background-position: center;
+  /* background-repeat: repeat;
+  background-size: 250px; */
+}
+
+html:has(#offline-message:not([hidden])) { 
+  background-color: black;
+}
+
+#offline-text {
+  line-height: 1;
+  text-align: right;
+
+  padding: 1.5rem;
+  border: 2px dotted white;
+}
+
+#adriatic-offline {
+  font-family: 'Kyrios';
+  font-size: 8rem;
+  color: white;
+}
+
+#offline-offline {
+  font-family: 'Quattro';
+  font-size: 1.25rem;
+  color: white;
+  font-style: italic;
+}
+
+@media (max-width: 1200px) {
+  #offline-text {
+    padding: 0.75rem;
+  }
+  
+  #adriatic-offline {
+  font-size: 5rem;
+}
+
+  #offline-offline {
+    font-size: 0.75rem;
+  }
+}
