@@ -285,6 +285,7 @@ updateClock();
     'DAILY MIX': "The Adriatic's main mix.",
     'DISCO': 'A mix of disco music.',
     'ELECTRONIC': 'A mix of electronic music.',
+    "EVAN'S PICKS": 'A mix of music from Evan.',
     'FOLK': 'A mix of folk music.',
     'FUNK + JAZZ': 'A mix of funk and jazz music.',
     'JAZZ': 'A mix of jazz music.',
